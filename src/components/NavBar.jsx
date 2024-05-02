@@ -3,16 +3,22 @@ import Login from './Login'
 
 const NavBar = () => {
   const [isActive, setIsActive] = useState(false)
+  const [isModalActive, setIsModalActive] = useState(false)
 
   const handleToggle = () => {
     setIsActive(!isActive)
   }
 
-  const toggleActive = () => {
-    setIsActive(!isActive)
+  const handleModalToggle = () => {
+    setIsModalActive(!isModalActive)
   }
+
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav
+      className="navbar is-fixed-top"
+      role="navigation"
+      aria-label="main navigation"
+    >
       <div className="navbar-brand">
         <a className="navbar-item" href="/">
           GaraStore
@@ -57,11 +63,11 @@ const NavBar = () => {
                 <strong>Sign up</strong>
               </a>
               <div>
-                <button className="button is-light" onClick={toggleActive}>
+                <button className="button is-light" onClick={handleModalToggle}>
                   Log in
                 </button>
 
-                <div className={`modal ${isActive ? 'is-active' : ''}`}>
+                <div className={`modal ${isModalActive ? 'is-active' : ''}`}>
                   <div className="modal-background"></div>
                   <div className="modal-content">
                     <div className="box">
@@ -71,7 +77,7 @@ const NavBar = () => {
                   <button
                     className="modal-close is-large"
                     aria-label="close"
-                    onClick={toggleActive}
+                    onClick={handleModalToggle}
                   ></button>
                 </div>
               </div>

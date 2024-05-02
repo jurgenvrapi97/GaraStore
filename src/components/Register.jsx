@@ -32,12 +32,13 @@ const Register = () => {
   }
 
   return (
-    <div className="container card has-background-primary-dark mt-3 p-3">
+    <div className="container card  mt-3 p-5">
       <div className="columns is-vcentered is-centered">
         <div className="column has-text-centered">
           <figure className="image">
-            <img src="path-to-your-image.jpg" />
+            <img src="https://troianiortodonzia.it/wp-content/uploads/2016/10/orionthemes-placeholder-image.png" />
           </figure>
+          <h1 className="is-size-1">Unisciti alla nostra comunity </h1>
         </div>
         <div className="column">
           <form onSubmit={handleSubmit}>
