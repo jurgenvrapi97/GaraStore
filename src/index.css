@@ -1,0 +1,27 @@
+input::placeholder {
+  text-align: center;
+}
+
+body {
+  background-color: #080808; /* Cambia questo con il colore che preferisci */
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoom-in {
+  animation-name: zoomIn;
+  animation-duration: 2s;
+}
+
+.section-color-2 {
+  background-color: #e0e0e0; /* Grigio */
+}
