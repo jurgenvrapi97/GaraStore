@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "bulma": "^1.0.0",
+    "leaflet": "^1.9.4",
     "react": "^18.2.0",
     "react-datepicker": "^6.9.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.2.0",
     "react-intersection-observer": "^9.10.1",
+    "react-leaflet": "^4.2.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.23.0",
     "react-scroll-parallax": "^3.4.5",

@@ -58,20 +58,22 @@ const Home = () => {
           <Slider {...settings} className="my-carousel">
             <div>
               <img
-                className="rounded-image"
-                src="https://troianiortodonzia.it/wp-content/uploads/2016/10/orionthemes-placeholder-image.png"
+                className="rounded-image h-100"
+                src="https://www.3dnatives.com/en/wp-content/uploads/sites/2/2023/08/BambuLab-cover.jpg"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div>
               <img
                 className="rounded-image"
-                src="https://troianiortodonzia.it/wp-content/uploads/2016/10/orionthemes-placeholder-image.png"
+                src="https://wattsan.com/wp-content/uploads/screenshot_19.jpg"
               />
             </div>
             <div>
               <img
                 className="rounded-image"
-                src="https://troianiortodonzia.it/wp-content/uploads/2016/10/orionthemes-placeholder-image.png"
+                src="https://woodprogress.it/wp-content/uploads/elementor/thumbs/Laboratorio-wood-Progress-pg7deqj7xa4x4hljcli15yzsjgsuds7j88s9tzoowg.jpeg"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
           </Slider>
