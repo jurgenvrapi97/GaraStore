@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import videoSrc from '../assets/Download.mp4'
 
 const Home = () => {
   const sectionRefs = useRef([])
@@ -161,6 +162,29 @@ const Home = () => {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="section" ref={(el) => (sectionRefs.current[4] = el)}>
+        <div className="container">
+          <div className="columns">
+            <div className="column">
+              <video
+                className="is-rounded"
+                src={videoSrc}
+                autoPlay
+                loop
+                muted
+              ></video>
+            </div>
+            <div className="column">
+              <p className="title">Ecco i nostri collaboratori</p>
+              <p className="subtitle">
+                Vi presentiamo i nostri più storici collaboratori i veri
+                ideatori di tutti i nostri proggetti. -Le Menti-
+              </p>
             </div>
           </div>
         </div>

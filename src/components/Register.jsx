@@ -43,7 +43,7 @@ const Register = () => {
         <div className="column">
           <form onSubmit={handleSubmit}>
             <div className="field">
-              <label className="label has-text-centered">Username</label>
+              <label className="label">Username</label>
               <div className="control">
                 <input
                   className="input"
@@ -55,7 +55,7 @@ const Register = () => {
               </div>
             </div>
             <div className="field">
-              <label className="label has-text-centered">Email</label>
+              <label className="label">Email</label>
               <div className="control">
                 <input
                   className="input"
@@ -67,7 +67,7 @@ const Register = () => {
               </div>
             </div>
             <div className="field">
-              <label className="label has-text-centered">Password</label>
+              <label className="label">Password</label>
               <div className="control">
                 <input
                   className="input"
@@ -79,7 +79,7 @@ const Register = () => {
               </div>
             </div>
             <div className="field">
-              <label className="label has-text-centered">Phone</label>
+              <label className="label">Phone</label>
               <div className="control">
                 <input
                   className="input"
@@ -93,7 +93,7 @@ const Register = () => {
             <div className="columns">
               <div className="column">
                 <div className="field">
-                  <label className="label has-text-centered">Birth Date</label>
+                  <label className="label">Birth Date</label>
                   <div className="control">
                     <input
                       className="input"
@@ -107,7 +107,7 @@ const Register = () => {
               </div>
               <div className="column">
                 <div className="field">
-                  <label className="label has-text-centered">Province</label>
+                  <label className="label">Province</label>
                   <div className="control">
                     <input
                       className="input"
@@ -121,7 +121,7 @@ const Register = () => {
               </div>
             </div>
             <div className="field">
-              <label className="label has-text-centered">City</label>
+              <label className="label">City</label>
               <div className="control">
                 <input
                   className="input"
@@ -136,7 +136,7 @@ const Register = () => {
               <div className="control">
                 <button
                   type="submit"
-                  className="button is-primary is-fullwidth has-text-centered"
+                  className="button is-primary is-fullwidth"
                 >
                   Register
                 </button>
