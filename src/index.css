@@ -1,3 +1,6 @@
+@import '../node_modules/slick-carousel/slick/slick.css';
+@import '../node_modules/slick-carousel/slick/slick-theme.css';
+
 input::placeholder {
   text-align: center;
 }
@@ -36,7 +39,7 @@ body {
 }
 
 body {
-  background-image: url('./assets/5184012.jpg');
+  background-image: url('./assets/opoy2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-repeat: repeat-x;
@@ -75,4 +78,41 @@ body {
 
 .navbar.is-fixed-top {
   z-index: 1000;
+}
+.is-scrollable {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.is-scrollable::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari and Opera */
+}
+
+.is-zoomed {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.card-fade {
+  animation: fade 3s infinite;
+}
+
+.logo-svg {
+  filter: invert(100%);
+  height: 50px;
+  width: 50px;
 }

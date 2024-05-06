@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Login from './Login'
+import Logo from '../assets/GaraLogo.svg'
 
 const NavBar = () => {
   const [isActive, setIsActive] = useState(false)
@@ -20,8 +21,25 @@ const NavBar = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" href="/">
-          GaraStore
+        <a
+          className="navbar-item"
+          href="/"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontSize: '24px',
+            fontWeight: 'bold',
+          }}
+        >
+          <img
+            src={Logo}
+            alt="Logo"
+            className="logo-svg mt-2"
+            style={{ transform: 'scale(6)' }}
+          />
+
+          <span>GaraStore</span>
         </a>
 
         <a

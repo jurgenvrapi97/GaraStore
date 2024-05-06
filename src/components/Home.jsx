@@ -4,6 +4,8 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import videoSrc from '../assets/Download.mp4'
+import Logo from '../assets/GaraLogo.svg'
+import ModCarousel from './ModCarousel'
 
 const Home = () => {
   const sectionRefs = useRef([])
@@ -43,18 +45,28 @@ const Home = () => {
 
   return (
     <div className="home">
-      <section className="hero is-fullheight ">
+      <section className="hero is-fullheight">
         <div className="hero-body">
           <div className="container">
-            <h1 className="title is-size-1">Benvenuti su GaraStore</h1>
-            <h2 className="subtitle is-size-3">
-              Scopri le ultime novità in fatto di design e tecnologia
-            </h2>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <img
+                src={Logo}
+                alt="Logo"
+                className="logo-svg"
+                style={{ marginRight: '100px', transform: 'scale(15)' }}
+              />
+              <div>
+                <h1 className="title is-size-1">Benvenuti su GaraStore</h1>
+                <h2 className="subtitle is-size-3">
+                  Scopri le ultime novità in fatto di design e tecnologia
+                </h2>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <div className="section" ref={(el) => (sectionRefs.current[0] = el)}>
+      <div className="section mb-5" ref={(el) => (sectionRefs.current[0] = el)}>
         <div className="container">
           <Slider {...settings} className="my-carousel">
             <div>
@@ -81,7 +93,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="section" ref={(el) => (sectionRefs.current[1] = el)}>
+      <div className="section mt-5" ref={(el) => (sectionRefs.current[1] = el)}>
         <div className="container">
           <div className="columns">
             <div className="column">
@@ -139,7 +151,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="section" ref={(el) => (sectionRefs.current[3] = el)}>
+      <div className="section mb-5" ref={(el) => (sectionRefs.current[3] = el)}>
         <div className="container">
           <div className="columns">
             <div className="column">
@@ -185,6 +197,15 @@ const Home = () => {
                 Vi presentiamo i nostri più storici collaboratori i veri
                 ideatori di tutti i nostri proggetti. -Le Menti-
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="section" ref={(el) => (sectionRefs.current[4] = el)}>
+        <div className="container">
+          <div className="columns">
+            <div className="column">
+              <ModCarousel></ModCarousel>
             </div>
           </div>
         </div>
