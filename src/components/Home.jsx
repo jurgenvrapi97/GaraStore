@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import videoSrc from '../assets/Download.mp4'
-import Logo from '../assets/GaraLogo.svg'
+import Logo from '../assets/new-logo-gara.svg'
 import ModCarousel from './ModCarousel'
 
 const Home = () => {
@@ -53,7 +53,7 @@ const Home = () => {
                 src={Logo}
                 alt="Logo"
                 className="logo-svg"
-                style={{ marginRight: '100px', transform: 'scale(15)' }}
+                style={{ marginRight: '10vh', transform: 'scale(1.5)' }}
               />
               <div>
                 <h1 className="title is-size-1">Benvenuti su GaraStore</h1>

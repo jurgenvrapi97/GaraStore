@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Login from './Login'
-import Logo from '../assets/GaraLogo.svg'
+import Logo from '../assets/new-logo-gara.svg'
 
 const NavBar = () => {
   const [isActive, setIsActive] = useState(false)
@@ -35,8 +35,8 @@ const NavBar = () => {
           <img
             src={Logo}
             alt="Logo"
-            className="logo-svg mt-2"
-            style={{ transform: 'scale(6)' }}
+            className="logo-svg1 mx-2"
+            style={{ transform: 'scale(1.5)' }}
           />
 
           <span>GaraStore</span>
