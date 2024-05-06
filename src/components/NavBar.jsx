@@ -66,11 +66,11 @@ const NavBar = () => {
           </a>
 
           <a className="navbar-item" href="/about">
-            About
+            Chi siamo
           </a>
 
           <a className="navbar-item" href="/contact">
-            Contact
+            Prodotti
           </a>
         </div>
 

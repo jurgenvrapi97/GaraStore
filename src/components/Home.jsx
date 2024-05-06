@@ -59,7 +59,7 @@ const Home = () => {
                   />
                 </figure>
               </div>
-              <div className="column">
+              <div className="column has-text-centered-touch">
                 <h1 className="title is-size-1-desktop is-size-3-touch">
                   Benvenuti su GaraStore
                 </h1>
