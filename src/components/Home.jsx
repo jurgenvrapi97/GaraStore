@@ -48,16 +48,22 @@ const Home = () => {
       <section className="hero is-fullheight">
         <div className="hero-body">
           <div className="container">
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <img
-                src={Logo}
-                alt="Logo"
-                className="logo-svg"
-                style={{ marginRight: '10vh', transform: 'scale(1.5)' }}
-              />
-              <div>
-                <h1 className="title is-size-1">Benvenuti su GaraStore</h1>
-                <h2 className="subtitle is-size-3">
+            <div className="columns is-vcentered is-flex-direction-column-touch">
+              <div className="column is-narrow">
+                <figure className="image">
+                  <img
+                    src={Logo}
+                    alt="Logo"
+                    className="logo-svg"
+                    style={{ marginRight: '10vh', transform: 'scale(1)' }}
+                  />
+                </figure>
+              </div>
+              <div className="column">
+                <h1 className="title is-size-1-desktop is-size-3-touch">
+                  Benvenuti su GaraStore
+                </h1>
+                <h2 className="subtitle is-size-3-desktop is-size-5-touch">
                   Scopri le ultime novità in fatto di design e tecnologia
                 </h2>
               </div>
@@ -183,13 +189,9 @@ const Home = () => {
         <div className="container">
           <div className="columns">
             <div className="column">
-              <video
-                className="is-rounded"
-                src={videoSrc}
-                autoPlay
-                loop
-                muted
-              ></video>
+              <video className="is-rounded" autoPlay loop muted>
+                <source src={videoSrc} type="video/mp4" />
+              </video>
             </div>
             <div className="column">
               <p className="title">Ecco i nostri collaboratori</p>
