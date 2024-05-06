@@ -9,4 +9,7 @@ export default defineConfig({
       input: 'index.html',
     },
   },
+  server: {
+    historyApiFallback: true,
+  },
 })
