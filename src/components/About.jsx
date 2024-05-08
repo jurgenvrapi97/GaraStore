@@ -1,6 +1,7 @@
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'
 import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
+import NewItem from './NewItem'
 
 const center = {
   lat: 42.9001,

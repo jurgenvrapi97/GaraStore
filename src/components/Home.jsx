@@ -6,6 +6,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import videoSrc from '../assets/Download.mp4'
 import Logo from '../assets/new-logo-gara.svg'
 import ModCarousel from './ModCarousel'
+import ThreeDProject from './ThreeDProject'
 
 const Home = () => {
   const sectionRefs = useRef([])
@@ -208,6 +209,16 @@ const Home = () => {
           <div className="columns">
             <div className="column">
               <ModCarousel></ModCarousel>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="section" ref={(el) => (sectionRefs.current[4] = el)}>
+        <div className="container">
+          <div className="columns">
+            <div className="column">
+              <ThreeDProject />
             </div>
           </div>
         </div>

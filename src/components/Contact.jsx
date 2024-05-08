@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 import Prodotti from '../assets/2151340280.jpg'
 
 const products = [
@@ -69,27 +69,29 @@ const products = [
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="card">
-      <div className="card-image">
-        <figure className="image is-4by3">
-          <img src={product.image} alt={product.title} />
-        </figure>
-      </div>
-      <div className="card-content">
-        <div className="media">
-          <div className="media-content">
-            <p className="title is-4">{product.title}</p>
-            <p className="subtitle is-6">{product.description}</p>
-            <p className="subtitle is-5 has-text-weight-bold">
-              €{product.price}
-            </p>
+    <Link to={`/products/${product.id}`}>
+      <div className="card">
+        <div className="card-image">
+          <figure className="image is-4by3">
+            <img src={product.image} alt={product.title} />
+          </figure>
+        </div>
+        <div className="card-content">
+          <div className="media">
+            <div className="media-content">
+              <p className="title is-4">{product.title}</p>
+              <p className="subtitle is-6">{product.description}</p>
+              <p className="subtitle is-5 has-text-weight-bold">
+                €{product.price}
+              </p>
+            </div>
+          </div>
+          <div className="content">
+            <button className="button is-primary">Acquista</button>
           </div>
         </div>
-        <div className="content">
-          <button className="button is-primary">Acquista</button>
-        </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

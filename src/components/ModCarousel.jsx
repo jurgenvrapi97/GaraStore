@@ -36,7 +36,7 @@ const ModCarousel = () => {
     [
       {
         icon: FaCreditCard,
-        title: 'Pagametni',
+        title: 'Pagamenti',
         description: 'Pagamenti sicuri e certificati.',
       },
       {

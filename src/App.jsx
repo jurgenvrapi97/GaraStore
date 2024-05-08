@@ -5,6 +5,7 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Register from './components/Register'
 import Login from './components/Login'
+import DetailProducts from './components/DetailProducts'
 import 'bulma/css/bulma.css'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/products/:id" element={<DetailProducts />} />
             </Routes>
           </div>
         </div>

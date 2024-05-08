@@ -1,56 +1,94 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+import Logo from '../assets/new-logo-gara.svg'
 
 const Register = () => {
-  const [username, setUsername] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [phone, setPhone] = useState('')
-  const [birthDate, setBirthDate] = useState('')
-  const [city, setCity] = useState('')
-  const [province, setProvince] = useState('')
+  const [birthYear, setBirthYear] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [passwordsMatch, setPasswordsMatch] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const handleUsernameChange = (e) => setUsername(e.target.value)
+  const handleFirstNameChange = (e) => setFirstName(e.target.value)
+  const handleLastNameChange = (e) => setLastName(e.target.value)
   const handleEmailChange = (e) => setEmail(e.target.value)
-  const handlePasswordChange = (e) => setPassword(e.target.value)
   const handlePhoneChange = (e) => setPhone(e.target.value)
-  const handleBirthDateChange = (e) => setBirthDate(e.target.value)
-  const handleCityChange = (e) => setCity(e.target.value)
-  const handleProvinceChange = (e) => setProvince(e.target.value)
+  const handleBirthYearChange = (e) => setBirthYear(e.target.value)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Add your registration logic here
-    console.log(
-      'Registration submitted:',
-      username,
-      email,
-      password,
-      phone,
-      birthDate,
-      city
-    )
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value)
+    setPasswordsMatch(event.target.value === confirmPassword)
+  }
+
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value)
+    setPasswordsMatch(password === event.target.value)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!')
+    } else {
+      setIsModalOpen(true)
+    }
   }
 
   return (
-    <div className="container card  mt-3 p-5">
-      <div className="columns is-vcentered is-centered">
-        <div className="column has-text-centered">
-          <figure className="image">
-            <img src="https://troianiortodonzia.it/wp-content/uploads/2016/10/orionthemes-placeholder-image.png" />
-          </figure>
-          <h1 className="is-size-1">Unisciti alla nostra comunity </h1>
+    <div className="card">
+      {isModalOpen && (
+        <div className="modal is-active">
+          <div
+            className="modal-background"
+            onClick={() => setIsModalOpen(false)}
+          ></div>
+          <div className="modal-content ">
+            <div className="box is-success">
+              Hai completato la registrazione
+            </div>
+          </div>
+          <button
+            className="modal-close is-large"
+            aria-label="close"
+            onClick={() => setIsModalOpen(false)}
+          ></button>
         </div>
-        <div className="column">
-          <form onSubmit={handleSubmit}>
+      )}
+      <div className="card-content">
+        <div className="columns">
+          <div className="column is-one-third">
+            <figure className="image is-4by3">
+              <img src={Logo} alt="Description" className="logo-svg1" />
+            </figure>
+            <p className="has-text-centered">
+              Entra a far parte della comunity
+            </p>
+          </div>
+          <div className="column">
             <div className="field">
-              <label className="label">Username</label>
+              <label className="label">First Name</label>
               <div className="control">
                 <input
                   className="input"
                   type="text"
-                  placeholder="Enter your username"
-                  value={username}
-                  onChange={handleUsernameChange}
+                  placeholder="Enter your first name"
+                  value={firstName}
+                  onChange={handleFirstNameChange}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <label className="label">Last Name</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Enter your last name"
+                  value={lastName}
+                  onChange={handleLastNameChange}
                 />
               </div>
             </div>
@@ -70,11 +108,23 @@ const Register = () => {
               <label className="label">Password</label>
               <div className="control">
                 <input
-                  className="input"
+                  className={`input ${!passwordsMatch ? 'is-danger' : ''}`}
                   type="password"
                   placeholder="Enter your password"
                   value={password}
                   onChange={handlePasswordChange}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <label className="label">Confirm Password</label>
+              <div className="control">
+                <input
+                  className={`input ${!passwordsMatch ? 'is-danger' : ''}`}
+                  type="password"
+                  placeholder="Confirm your password"
+                  value={confirmPassword}
+                  onChange={handleConfirmPasswordChange}
                 />
               </div>
             </div>
@@ -90,45 +140,15 @@ const Register = () => {
                 />
               </div>
             </div>
-            <div className="columns">
-              <div className="column">
-                <div className="field">
-                  <label className="label">Birth Date</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type="date"
-                      placeholder="Enter your birth date"
-                      value={birthDate}
-                      onChange={handleBirthDateChange}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="column">
-                <div className="field">
-                  <label className="label">Province</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type="text"
-                      placeholder="Enter your province"
-                      value={province}
-                      onChange={handleProvinceChange}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
             <div className="field">
-              <label className="label">City</label>
+              <label className="label">Date of Birth</label>
               <div className="control">
                 <input
                   className="input"
-                  type="text"
-                  placeholder="Enter your city of residence"
-                  value={city}
-                  onChange={handleCityChange}
+                  type="date"
+                  placeholder="Enter your date of birth"
+                  value={birthYear}
+                  onChange={handleBirthYearChange}
                 />
               </div>
             </div>
@@ -136,13 +156,14 @@ const Register = () => {
               <div className="control">
                 <button
                   type="submit"
+                  onClick={handleSubmit}
                   className="button is-primary is-fullwidth"
                 >
                   Register
                 </button>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
