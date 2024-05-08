@@ -204,7 +204,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="section" ref={(el) => (sectionRefs.current[4] = el)}>
+      <div className="section" ref={(el) => (sectionRefs.current[5] = el)}>
         <div className="container">
           <div className="columns">
             <div className="column">
@@ -214,7 +214,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="section" ref={(el) => (sectionRefs.current[4] = el)}>
+      <div className="section" ref={(el) => (sectionRefs.current[6] = el)}>
         <div className="container">
           <div className="columns">
             <div className="column">
