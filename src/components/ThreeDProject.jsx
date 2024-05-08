@@ -4,7 +4,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from '@react-three/drei'
 
 function Model() {
-  const gltf = useLoader(GLTFLoader, '/assets/Solid_Wooden_Wheel.gltf')
+  const gltf = useLoader(GLTFLoader, 'public/Solid_Wooden_Wheel.gltf')
   return <primitive object={gltf.scene} />
 }
 
