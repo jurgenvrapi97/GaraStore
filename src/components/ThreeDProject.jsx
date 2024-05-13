@@ -2,9 +2,15 @@ import React, { Suspense, useEffect, useRef } from 'react'
 import { Canvas, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from '@react-three/drei'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 
 function Model() {
-  const gltf = useLoader(GLTFLoader, '/desk.gltf')
+  const dracoLoader = new DRACOLoader()
+  dracoLoader.setDecoderPath('/draco/')
+  const gltfLoader = new GLTFLoader()
+  gltfLoader.setDRACOLoader(dracoLoader)
+
+  const gltf = useLoader(gltfLoader, '/desk.gltf')
   return <primitive object={gltf.scene} />
 }
 

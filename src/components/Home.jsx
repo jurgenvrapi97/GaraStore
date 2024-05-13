@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -6,7 +6,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import videoSrc from '../assets/Download.mp4'
 import Logo from '../assets/new-logo-gara.svg'
 import ModCarousel from './ModCarousel'
-import ThreeDProject from './ThreeDProject'
 
 const Home = () => {
   const sectionRefs = useRef([])
@@ -217,9 +216,7 @@ const Home = () => {
       <div className="section" ref={(el) => (sectionRefs.current[6] = el)}>
         <div className="container">
           <div className="columns">
-            <div className="column">
-              <ThreeDProject />
-            </div>
+            <div className="column">{/* <ThreeDProject /> */}</div>
           </div>
         </div>
       </div>
