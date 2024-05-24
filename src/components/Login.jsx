@@ -1,6 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { login } from '../redux/action'
 
 const Login = () => {
+  const dispatch = useDispatch()
+  const loginError = useSelector((state) => state.login.error)
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -8,26 +13,32 @@ const Login = () => {
     setEmail(e.target.value)
   }
 
+  useEffect(() => {
+    if (loginError == 'true') {
+      setEmail('')
+      setPassword('')
+    }
+  }, [loginError])
+
   const handlePasswordChange = (e) => {
     setPassword(e.target.value)
   }
 
-  const handleLogin = () => {
-    // Perform login logic here
-    console.log('Email:', email)
-    console.log('Password:', password)
+  const handleLogin = (event) => {
+    event.preventDefault()
+    dispatch(login(email, password))
   }
 
   return (
     <div className="container">
       <div className="columns is-centered">
         <div className="column is-three-quarters-mobile is-half-tablet px-0">
-          <form>
+          <form onSubmit={handleLogin}>
             <div className="field">
               <label className="label">Email:</label>
               <div className="control">
                 <input
-                  className="input"
+                  className={`input ${loginError ? 'is-danger' : ''}`}
                   type="email"
                   placeholder="Email"
                   value={email}
@@ -39,7 +50,7 @@ const Login = () => {
               <label className="label">Password:</label>
               <div className="control">
                 <input
-                  className="input"
+                  className={`input ${loginError ? 'is-danger' : ''}`}
                   type="password"
                   placeholder="Password"
                   value={password}
@@ -47,8 +58,11 @@ const Login = () => {
                 />
               </div>
             </div>
+            {loginError && (
+              <p className="has-text-danger">Credenziali errate, riprova.</p>
+            )}
             <div className="control">
-              <button className="button is-primary" onClick={handleLogin}>
+              <button className="button is-primary" type="submit">
                 Login
               </button>
             </div>

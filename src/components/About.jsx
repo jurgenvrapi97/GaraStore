@@ -54,7 +54,7 @@ const About = () => {
             </a>
             <a
               className="button is-white"
-              href="https://www.instagram.com/yourpage"
+              href="https://www.instagram.com/garastorecollection?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
             >

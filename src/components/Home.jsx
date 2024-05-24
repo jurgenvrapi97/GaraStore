@@ -36,10 +36,21 @@ const Home = () => {
       }
     )
 
-    sectionRefs.current.forEach((section) => observer.observe(section))
+    sectionRefs.current.forEach((section) => {
+      if (section) {
+        observer.observe(section)
+      }
+    })
 
     return () => {
-      sectionRefs.current.forEach((section) => observer.unobserve(section))
+      sectionRefs.current.forEach((section) => {
+        if (
+          section &&
+          observer.takeRecords().find((entry) => entry.target === section)
+        ) {
+          observer.unobserve(section)
+        }
+      })
     }
   }, [])
 

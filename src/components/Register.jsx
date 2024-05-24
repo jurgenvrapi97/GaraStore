@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Logo from '../assets/new-logo-gara.svg'
+import { Modal } from 'react-bulma-components'
 
 const Register = () => {
   const [firstName, setFirstName] = useState('')
@@ -10,6 +11,7 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [passwordsMatch, setPasswordsMatch] = useState(true)
+
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleFirstNameChange = (e) => setFirstName(e.target.value)
@@ -17,6 +19,35 @@ const Register = () => {
   const handleEmailChange = (e) => setEmail(e.target.value)
   const handlePhoneChange = (e) => setPhone(e.target.value)
   const handleBirthYearChange = (e) => setBirthYear(e.target.value)
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    const data = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+      phoneNumber: phone,
+      birthDate: birthYear,
+    }
+
+    console.log(JSON.stringify(data))
+
+    const response = await fetch('http://localhost:8081/user/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+
+    if (response.ok) {
+      setIsModalOpen(true)
+    } else {
+      // Handle error
+    }
+  }
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value)
@@ -28,35 +59,15 @@ const Register = () => {
     setPasswordsMatch(password === event.target.value)
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    if (password !== confirmPassword) {
-      alert('Passwords do not match!')
-    } else {
-      setIsModalOpen(true)
-    }
-  }
-
   return (
     <div className="card">
-      {isModalOpen && (
-        <div className="modal is-active">
-          <div
-            className="modal-background"
-            onClick={() => setIsModalOpen(false)}
-          ></div>
-          <div className="modal-content ">
-            <div className="box is-success">
-              Hai completato la registrazione
-            </div>
-          </div>
-          <button
-            className="modal-close is-large"
-            aria-label="close"
-            onClick={() => setIsModalOpen(false)}
-          ></button>
-        </div>
-      )}
+      <Modal show={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <Modal.Content>
+          <p className="has-text-success has-text-centered is-size-4">
+            Ora fai parte della nostra comunity, effettua il log in{' '}
+          </p>
+        </Modal.Content>
+      </Modal>
       <div className="card-content">
         <div className="columns">
           <div className="column is-one-third">
