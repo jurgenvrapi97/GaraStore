@@ -33,10 +33,9 @@ const ProductGrid = () => {
   if (error) {
     return (
       <div>
-        Error: {error}
         <Modal show={true}>
           <Modal.Content>
-            <p>Error: {error}</p>
+            <p>Non siamo riusciti a caricare i prodotti: {error}</p>
           </Modal.Content>
         </Modal>
       </div>
