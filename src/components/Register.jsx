@@ -46,7 +46,9 @@ const Register = () => {
 
     if (response.ok) {
       setIsModalOpen(true)
-      navigate('/')
+      setTimeout(() => {
+        navigate('/')
+      }, 2000)
     } else {
       // Handle error
     }
