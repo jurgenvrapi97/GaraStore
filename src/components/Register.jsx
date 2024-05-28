@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Logo from '../assets/new-logo-gara.svg'
 import { Modal } from 'react-bulma-components'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
   const [firstName, setFirstName] = useState('')
@@ -12,7 +12,7 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [passwordsMatch, setPasswordsMatch] = useState(true)
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -46,7 +46,7 @@ const Register = () => {
 
     if (response.ok) {
       setIsModalOpen(true)
-      history.push('/')
+      navigate('/')
     } else {
       // Handle error
     }
