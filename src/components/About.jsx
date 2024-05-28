@@ -22,15 +22,14 @@ const About = () => {
         <div className="column ">
           <h1 className="title">Informazioni sull'azienda</h1>
           <p className="has-text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
-            purus feugiat, molestie ipsum et, consequat nibh. Nullam vitae
-            feugiat libero.
+            GaraStore si occupa di creazione di oggetti che uniscono la
+            narutalità del legno alla modernità della stampa 3D.
           </p>
           <p className="has-text-white">
-            Indirizzo: Via Example 123, Città, Stato
+            Indirizzo: Via Example 123, Centobuchi, Italia
           </p>
           <p className="has-text-white">Telefono: 123-456-7890</p>
-          <p className="has-text-white">Email: info@azienda.com</p>
+          <p className="has-text-white">Email: GaraStore@gmail.com</p>
           <div className="buttons are-large mt-2">
             <a
               className="button is-white"
