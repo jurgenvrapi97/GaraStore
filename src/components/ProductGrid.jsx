@@ -15,7 +15,20 @@ const ProductGrid = () => {
     dispatch(fetchProducts())
   }, [dispatch])
 
-  if (loading) return <div>Loading...</div>
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+        }}
+      >
+        <div className="loader"></div>
+      </div>
+    )
+  }
   if (error) return <div>Error: {error}</div>
 
   return (

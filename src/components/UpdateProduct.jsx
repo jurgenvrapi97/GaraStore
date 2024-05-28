@@ -9,6 +9,7 @@ const UpdateProduct = () => {
   console.log('Products:', products)
   const product = products.find((p) => p.id === Number(id))
   const token = useSelector((state) => state.login.token)
+  const [isUpdated, setIsUpdated] = useState(false)
 
   const [productForm, setProductForm] = useState({
     name: '',
@@ -43,6 +44,7 @@ const UpdateProduct = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     dispatch(updateProduct(id, productForm, token))
+    setIsUpdated(true)
   }
 
   return (
@@ -111,6 +113,11 @@ const UpdateProduct = () => {
               </div>
             </div>
           </form>
+          {isUpdated && (
+            <div className="notification is-success">
+              Aggiornato correttamente
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -12,7 +12,8 @@ const ProductAdd = () => {
   const [image, setImage] = useState(null)
 
   const dispatch = useDispatch()
-  const productState = useSelector((state) => state.product)
+  const productState = useSelector((state) => state.product.products)
+  console.log('Product State:', productState)
   const authState = useSelector((state) => state.login)
 
   const handleChange = (event) => {
@@ -53,8 +54,16 @@ const ProductAdd = () => {
     <div>
       {productState.loading && <div>Loading...</div>}
       {productState.error && <div>{productState.error}</div>}
-      {productState.product && productState.product.name && (
-        <div>Product added successfully!</div>
+      {productState.product && productState.product.productName && (
+        <div className="modal is-active">
+          <div className="modal-background"></div>
+          <div className="modal-content">
+            <article className="message is-success">
+              <div className="message-body">Prodotto aggiunto con successo</div>
+            </article>
+          </div>
+          <button className="modal-close is-large" aria-label="close"></button>
+        </div>
       )}
 
       <div className="card">
