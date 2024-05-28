@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { fetchProducts } from '../redux/action'
 import ProductCard from './ProductCard'
+import { Modal } from 'react-bulma-components'
 
 const ProductGrid = () => {
   const dispatch = useDispatch()
@@ -29,7 +30,18 @@ const ProductGrid = () => {
       </div>
     )
   }
-  if (error) return <div>Error: {error}</div>
+  if (error) {
+    return (
+      <div>
+        Error: {error}
+        <Modal show={true}>
+          <Modal.Content>
+            <p>Error: {error}</p>
+          </Modal.Content>
+        </Modal>
+      </div>
+    )
+  }
 
   return (
     <div className="container">
