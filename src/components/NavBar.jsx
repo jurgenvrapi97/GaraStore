@@ -116,9 +116,9 @@ const NavBar = () => {
           <div className="navbar-item">
             {!isLoggedIn ? (
               <div className="buttons">
-                <a className="button is-primary" href="/register">
+                <Link className="button is-primary" href="/register">
                   <strong>Sign up</strong>
-                </a>
+                </Link>
                 <div>
                   <button
                     className="button is-light"
