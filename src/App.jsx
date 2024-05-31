@@ -10,11 +10,14 @@ import DetailProducts from './components/DetailProducts'
 import 'bulma/css/bulma.css'
 import ProductGrid from './components/ProductGrid'
 import Riepilogo from './components/Riepilogo'
+import Footer from './components/Footer'
+import Welcome from './components/Welcome'
 
 function App() {
   return (
     <>
       <NavBar />
+      <Welcome />
       <div className="hero is-fullheight">
         <div className="hero-body">
           <div className="container">
@@ -32,6 +35,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

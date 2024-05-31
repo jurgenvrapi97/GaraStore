@@ -49,7 +49,7 @@ const ProductCard = ({ product }) => {
               position: 'absolute',
               top: '10px',
               left: '10px',
-              zIndex: 1,
+              zIndex: 4,
             }}
           >
             <FontAwesomeIcon icon={faEdit} />
@@ -61,14 +61,14 @@ const ProductCard = ({ product }) => {
               position: 'absolute',
               top: '10px',
               right: '10px',
-              zIndex: 1,
+              zIndex: 4,
             }}
           >
             <FontAwesomeIcon icon={faTrash} />
           </button>
         </>
       )}
-      <div className="card-image">
+      <div className="card-image" style={{ position: 'relative', zIndex: 2 }}>
         <figure className="image is-square">
           <img
             src={product.imageUrl}
@@ -76,13 +76,35 @@ const ProductCard = ({ product }) => {
             onClick={handleImageClick}
           />
         </figure>
-      </div>
-      <div className="card-content is-flex-grow-1">
-        <p className="title is-4 has-text-centered">{product.productName}</p>
-        <div className="content ">
-          <p>{product.description}</p>
-          <p>Quantità: {product.quantity} pz</p>
-          <p>Prezzo: {product.price}€</p>
+        <div
+          className="card-content is-flex-grow-1 has-background-black"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 1,
+            transition: 'z-index 0.3s, opacity 0.3s',
+            opacity: 0,
+            borderBottomLeftRadius: '0',
+            borderBottomRightRadius: '0',
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.zIndex = '3'
+            e.target.style.opacity = '0.8'
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.zIndex = '1'
+            e.target.style.opacity = '0'
+          }}
+        >
+          <p className="title is-4 has-text-centered">{product.productName}</p>
+          <div className="content ">
+            <p>{product.description}</p>
+            <p>disponibili: {product.quantity}</p>
+            <p>Prezzo: {product.price}€</p>
+          </div>
         </div>
       </div>
       <div className="card-footer">

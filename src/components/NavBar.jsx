@@ -145,7 +145,7 @@ const NavBar = () => {
             ) : (
               <div className="buttons">
                 <h1 className="has-text-success">
-                  Wellcome, {user?.firstName}{' '}
+                  Welcome, {user?.firstName}{' '}
                 </h1>
                 <button
                   className="button is-light"
