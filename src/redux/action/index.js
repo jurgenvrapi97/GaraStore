@@ -34,7 +34,7 @@ export const loginFailure = (error) => ({
 
 export const login = (email, password) => {
   return (dispatch) => {
-    fetch('http://localhost:8081/login', {
+    fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -52,9 +52,11 @@ export const login = (email, password) => {
         }
       })
       .then((data) => {
+        console.log('Received data:', data)
         dispatch(loginSuccess(data))
       })
       .catch((error) => {
+        console.log('Caught error:', error)
         dispatch(loginFailure(error.toString()))
       })
   }
@@ -78,7 +80,7 @@ export const fetchProductsFailure = (error) => ({
 export const fetchProducts = () => {
   return (dispatch) => {
     dispatch(fetchProductsRequest())
-    fetch('http://localhost:8081/products')
+    fetch('/api/products')
       .then((response) => {
         if (response.ok) {
           return response.json()
@@ -94,7 +96,6 @@ export const fetchProducts = () => {
       })
   }
 }
-
 export const addProductRequest = () => ({
   type: ADD_PRODUCT_REQUEST,
 })
@@ -112,7 +113,7 @@ export const addProductFailure = (error) => ({
 export const addProduct = (product, token) => {
   return (dispatch) => {
     dispatch(addProductRequest())
-    fetch('http://localhost:8081/products', {
+    fetch('/api/products', {
       method: 'POST',
       headers: {
         Authorization: `${token}`,
@@ -156,7 +157,7 @@ export const updateProduct = (id, updates, token) => async (dispatch) => {
   dispatch({ type: UPDATE_PRODUCT })
 
   try {
-    const response = await fetch(`http://localhost:8081/products/${id}`, {
+    const response = await fetch(`/api/products/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -181,7 +182,7 @@ export const deleteProduct = (id, token) => async (dispatch) => {
   dispatch({ type: DELETE_PRODUCT })
 
   try {
-    const response = await fetch(`http://localhost:8081/products/${id}`, {
+    const response = await fetch(`/api/products/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

@@ -156,10 +156,28 @@ const NavBar = () => {
                 >
                   Log out
                 </button>
-                <div className="navbar-item" style={{ position: 'relative' }}>
+                <div className="navbar-item">
                   <button className="button is-light" onClick={handleCartClick}>
-                    <span className="icon has-text-dark">
+                    <span
+                      className="icon has-text-dark"
+                      style={{ position: 'relative' }}
+                    >
                       <FontAwesomeIcon icon={faShoppingCart} />
+                      {cart.length > 0 && (
+                        <span
+                          className="tag is-danger is-rounded"
+                          style={{
+                            position: 'absolute',
+                            top: '-6px',
+                            right: '-6px',
+                            fontSize: '0.5rem',
+                            padding: '4px 6px',
+                            lineHeight: '1',
+                          }}
+                        >
+                          {cart.length}
+                        </span>
+                      )}
                     </span>
                   </button>
                 </div>
