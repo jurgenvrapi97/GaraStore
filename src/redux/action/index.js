@@ -34,7 +34,7 @@ export const loginFailure = (error) => ({
 
 export const login = (email, password) => {
   return (dispatch) => {
-    fetch('/api/login', {
+    fetch('http://localhost:8081/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export const fetchProductsFailure = (error) => ({
 export const fetchProducts = () => {
   return (dispatch) => {
     dispatch(fetchProductsRequest())
-    fetch('/api/products')
+    fetch('http://localhost:8081/products')
       .then((response) => {
         if (response.ok) {
           return response.json()
@@ -113,7 +113,7 @@ export const addProductFailure = (error) => ({
 export const addProduct = (product, token) => {
   return (dispatch) => {
     dispatch(addProductRequest())
-    fetch('/api/products', {
+    fetch('http://localhost:8081/products', {
       method: 'POST',
       headers: {
         Authorization: `${token}`,
@@ -157,7 +157,7 @@ export const updateProduct = (id, updates, token) => async (dispatch) => {
   dispatch({ type: UPDATE_PRODUCT })
 
   try {
-    const response = await fetch(`/api/products/${id}`, {
+    const response = await fetch(`http://localhost:8081/products/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -182,7 +182,7 @@ export const deleteProduct = (id, token) => async (dispatch) => {
   dispatch({ type: DELETE_PRODUCT })
 
   try {
-    const response = await fetch(`/api/products/${id}`, {
+    const response = await fetch(`http://localhost:8081/products/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
